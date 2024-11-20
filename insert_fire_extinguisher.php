@@ -6,6 +6,7 @@ $username = "root";
 // $password = "P@55w00rdabhik";
 $password = "!QAZzaq1";
 $dbname = "u195589955_fe";
+$flag=true;
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -19,6 +20,7 @@ $successMessage = ""; // Initialize the message variable
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // if (isset($_POST['submit'])) {
     // Retrieve form data
+    $action = $_POST['action']; // Retrieve the button clicked
     $unique_number = $_POST['unique_number'];
     $coach_number = $_POST['coach_number'];
     $build_date = $_POST['build_date'];
@@ -27,7 +29,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hydraulic_test_date = $_POST['hydraulic_test_date'];
     $status = $_POST['status'];
 
-    // Check if the unique number already exists
+
+    // print ("checking date value is ". $refilling_date);
+    // print ("refilling date value is ". $refilling_date);
+    // print ("hydralic date value is ". $hydraulic_test_date);
+    if ($action === 'submit') 
+    {
+      // if (isset($checking_date))
+      // {
+      //   if($checking_date<$build_date)
+      //   {
+      //     print ("checking_date is ". isset($checking_date));
+      //     $successMessage  = "<strong>Error</strong> in Checking date";
+      //     $flag=false;
+      //     // return;
+      //   }
+      // }
+      // if (isset($refilling_date))
+      // {
+      //   if( $refilling_date<$build_date )
+      //   {
+      //     print ("refilling is ". isset($refilling_date));
+      //     $successMessage  = "<strong>Error</strong> in refilling date";
+      //     $flag=false;
+      //     // return;
+      //   }
+      // }
+      // if (isset($hydraulic_test_date))
+      // {
+      //   if($hydraulic_test_date<$build_date)
+      //   {
+      //     print ("hydralic date is ". isset($hydraulic_test_date));
+      //     $successMessage  = "<strong>Error</strong> in hydralic test date";
+      //     $flag=false;
+      //     // return;
+      //   }
+      // }
+      // if($flag)
+      // {
+        // Check if the unique number already exists
     $check_sql = "SELECT * FROM fire_extinguishers WHERE unique_number = '$unique_number'";
     $result = $conn->query($check_sql);
 
@@ -54,7 +94,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $successMessage  = "Error inserting new record: " . $conn->error;
         }
     }
+      }
 
+    // } 
+    
 }
 
 $conn->close();
@@ -96,7 +139,7 @@ $conn->close();
             </li>
             <li class="nav-item">
               <a class="nav-link" href="insert_fire_extinguisher.php"
-                >Add FE Details</a
+                >Add/Update FE Details</a
               >
             </li>
           </ul>
@@ -114,25 +157,32 @@ $conn->close();
       <?php endif; ?>
 
       <form action="" method="POST">
-        <div class="mb-3 d-flex justify-content-around">
-          <label for="uniqueNumber" class="form-label"
-            >FE Number</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="uniqueNumber"
-            name="unique_number"
-            required
-            value="<?php echo isset($_POST['unique_number']) ? '' : ''; ?>"
-          />
-          <button
-            type="Fetch Details"
-            class="flex-lg-nowrap btn btn-primary"
-            id="fetchData"
-          >
-            Fetch Details
-          </button>
+        <div class="form-row">
+          <div class="col-md-6">
+            <label for="uniqueNumber" class="form-label"
+              >FE Number</label
+            >
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              id="uniqueNumber"
+              name="unique_number"
+              required
+              value="<?php echo isset($_POST['unique_number']) ? '' : ''; ?>"
+            />
+          </div>
+          <div class="col">
+            <button
+              type="submit"
+              class="flex-lg-nowrap btn btn-primary"
+              id="fetchData" 
+              name="action"
+            >
+              Fetch Details
+            </button>
+          </div>
         </div>
         <div class="mb-3">
           <label for="coachNumber" class="form-label">Coach Number</label>
@@ -197,7 +247,7 @@ $conn->close();
             value="<?php echo isset($_POST['status']) ? '' : ''; ?>"
           />
         </div>
-        <button type="submit" class="btn btn-primary" id="submitData" value="submit">
+        <button type="submit" class="btn btn-primary" id="submitData" name="action" value="submit">
           Submit
         </button>
       </form>

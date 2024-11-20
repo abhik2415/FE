@@ -83,19 +83,26 @@ document.getElementById("fetchData").addEventListener("click", function () {
               };
             }
           }
+          let next_checking_date_limit = 90;
+          let next_refilling_date_limit = 365;
+          let next_hydraulic_test_date_limit = 1095;
+
           const next_checking_date =
             data.checking_date !== "0000-00-00"
-              ? addDays(data.checking_date, 90)
-              : addDays(data.build_date, 90);
+              ? addDays(data.checking_date, next_checking_date_limit)
+              : addDays(data.build_date, next_checking_date_limit);
           console.log(diffday(next_checking_date));
           const next_refilling_date =
             data.refilling_date !== "0000-00-00"
-              ? addDays(data.refilling_date, 365)
-              : addDays(data.build_date, 365);
+              ? addDays(data.refilling_date, next_refilling_date_limit)
+              : addDays(data.build_date, next_refilling_date_limit);
           const next_hydraulic_test_date =
             data.hydraulic_test_date !== "0000-00-00"
-              ? addDays(data.hydraulic_test_date, 1095)
-              : addDays(data.build_date, 1095);
+              ? addDays(
+                  data.hydraulic_test_date,
+                  next_hydraulic_test_date_limit
+                )
+              : addDays(data.build_date, next_hydraulic_test_date_limit);
           if (data.message) {
             document.getElementById("result").innerHTML =
               '<div class="alert alert-danger">' + data.message + "</div>";
