@@ -142,6 +142,9 @@ $conn->close();
                 >Add/Update FE Details</a
               >
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="report.html">Reports</a>
+            </li>
           </ul>
         </div>
       </div>

@@ -91,7 +91,7 @@ document.getElementById("fetchData").addEventListener("click", function () {
             data.checking_date !== "0000-00-00"
               ? addDays(data.checking_date, next_checking_date_limit)
               : addDays(data.build_date, next_checking_date_limit);
-          console.log(diffday(next_checking_date));
+          // console.log(diffday(next_checking_date));
           const next_refilling_date =
             data.refilling_date !== "0000-00-00"
               ? addDays(data.refilling_date, next_refilling_date_limit)
