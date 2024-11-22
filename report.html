@@ -46,10 +46,14 @@
       </div>
     </nav>
 
-    <div class="text-center text-primary border border-primary">
+    <div class="text-center text-primary border border-primary" style="">
       <h1>Reports</h1>
     </div>
     <br />
+    <div id="result" class="mt-4">
+      <div id="result_alert"></div>
+      <!-- Fire extinguisher details will be displayed here -->
+    </div>
     <div class="text-center">
       <form
         action=""
@@ -68,13 +72,13 @@
           />
         </div>
         <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">
+          <button type="submit" class="btn btn-primary mb-3" id="submitReport">
             Show Reports
           </button>
         </div>
       </form>
     </div>
-    <div class="d-flex justify-content-between">
+    <div class="text-center p-3 mb-2 bg-primary text-white">
       <div>
         <h5>Due Checking Date</h5>
         <div id="detailschecking"></div>
