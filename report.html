@@ -46,51 +46,55 @@
       </div>
     </nav>
 
-    <div class="text-center text-primary border border-primary" style="">
-      <h1>Reports</h1>
-    </div>
-    <br />
-    <div id="result" class="mt-4">
-      <div id="result_alert"></div>
-      <!-- Fire extinguisher details will be displayed here -->
-    </div>
-    <div class="text-center">
-      <form
-        action=""
-        method="get"
-        class="row g-3"
-        style="display: flex; justify-content: center; align-items: center"
-      >
-        <div class="col-auto" style="width: 200px">
-          <!-- <label for="ReportsDate" class="">Report Date</label> -->
-          <input
-            type="date"
-            class="form-control"
-            id="ReportsDate"
-            name="reportDate"
-            required
-          />
-        </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3" id="submitReport">
-            Show Reports
-          </button>
-        </div>
-      </form>
-    </div>
-    <div class="text-center p-3 mb-2 bg-primary text-white">
-      <div>
+    <div style="margin: 20px">
+      <div class="text-center text-white border border-primary bg-primary">
+        <h1>Reports</h1>
+      </div>
+      <br />
+      <div id="result" class="mt-4">
+        <div id="result_alert"></div>
+        <!-- Fire extinguisher details will be displayed here -->
+      </div>
+      <div class="text-center">
+        <form
+          action=""
+          method="get"
+          class="row g-3"
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <div class="col-auto" style="width: 200px">
+            <!-- <label for="ReportsDate" class="">Report Date</label> -->
+            <input
+              type="date"
+              class="form-control"
+              id="ReportsDate"
+              name="reportDate"
+              required
+            />
+          </div>
+          <div class="col-auto">
+            <button
+              type="submit"
+              class="btn btn-primary mb-3"
+              id="submitReport"
+            >
+              Show Reports
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="text-center p-3 mb-2 bg-primary text-white">
         <h5>Due Checking Date</h5>
-        <div id="detailschecking"></div>
       </div>
-      <div>
+      <div id="detailschecking"></div>
+      <div class="text-center p-3 mb-2 bg-primary text-white">
         <h5>Due Refilling Date</h5>
-        <div id="detailsrefilling"></div>
       </div>
-      <div>
+      <div id="detailsrefilling"></div>
+      <div class="text-center p-3 mb-2 bg-primary text-white">
         <h5>Due Hydraulic Test Date</h5>
-        <div id="detailsHydralic"></div>
       </div>
+      <div id="detailsHydralic"></div>
     </div>
   </body>
   <script src="report.js" type="text/javascript"></script>
