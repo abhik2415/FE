@@ -1,9 +1,9 @@
 <?php
 // Database connection
 $servername = "localhost";
-$username = "u195589955_fe";
-$username = "root";
+// $username = "u195589955_fe";
 // $password = "P@55w00rdabhik";
+$username = "root";
 $password = "!QAZzaq1";
 $dbname = "u195589955_fe";
 $flag = true;
@@ -230,12 +230,13 @@ $conn->close();
       </div>
       <div class="mb-3">
         <label for="status" class="form-label">Comments</label>
-        <input
+        <!-- <input
           type="text"
           class="form-control"
           id="status"
           name="status"
-          value="<?php echo isset($_POST['status']) ? '' : ''; ?>" />
+          value="<?php echo isset($_POST['status']) ? '' : ''; ?>" /> -->
+        <textarea class="form-control" id="status" name="status" value="<?php echo isset($_POST['status']) ? '' : ''; ?>" rows="5"></textarea>
       </div>
       <button type="submit" class="btn btn-primary" id="submitData" name="action" value="submit">
         Submit
