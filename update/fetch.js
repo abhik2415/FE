@@ -10,7 +10,7 @@ document.getElementById("fetchData").addEventListener("click", function () {
   // toggleDiv();
   var qrCode = document.getElementById("uniqueNumber").value;
   if (qrCode) {
-    fetch("get_fire_extinguisher.php?unique_number=" + qrCode)
+    fetch("../get_fire_extinguisher.php?unique_number=" + qrCode)
       .then((response) => response.json())
       .then((data) => {
         if (data.message) {
