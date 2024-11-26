@@ -134,13 +134,13 @@ $conn->close();
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">View FE Details</a>
+            <a class="nav-link" href="../index.html">View FE Details</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="insert_fire_extinguisher.php">Add/Update FE Details</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="report.html">Reports</a>
+            <a class="nav-link" href="../report.html">Reports</a>
           </li>
         </ul>
       </div>
