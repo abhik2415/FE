@@ -20,7 +20,7 @@ if (isset($_GET['reportDate'])) {
 
     $queries = [
 
-        'sql_checking_date' => "SELECT unique_number,coach_number,build_date,checking_date,
+        'sql_checking_date' => "SELECT unique_number, Train_No, coach_number,build_date,checking_date,
         CASE 
             WHEN checking_date != '0000-00-00' THEN DATE_ADD(checking_date, INTERVAL 90 DAY)
             ELSE DATE_ADD(build_date, INTERVAL 90 DAY)
@@ -42,7 +42,7 @@ if (isset($_GET['reportDate'])) {
 
 
         // --------------------------------------------------------------------------- 
-        'sql_refilling_date' => "SELECT unique_number,coach_number, build_date, refilling_date,
+        'sql_refilling_date' => "SELECT unique_number, Train_No, coach_number, build_date, refilling_date,
             CASE 
                 WHEN refilling_date != '0000-00-00' THEN DATE_ADD(refilling_date, INTERVAL 365 DAY)
                 ELSE DATE_ADD(build_date, INTERVAL 365 DAY)
@@ -63,7 +63,7 @@ if (isset($_GET['reportDate'])) {
 
         // ----------------------------------------------------------------------------------------------
 
-        'sql_hydraulic_test_date' => "SELECT unique_number,coach_number, build_date, hydraulic_test_date,
+        'sql_hydraulic_test_date' => "SELECT unique_number, Train_No, coach_number, build_date, hydraulic_test_date,
         CASE 
             WHEN hydraulic_test_date != '0000-00-00' THEN DATE_ADD(hydraulic_test_date, INTERVAL 1095 DAY)
             ELSE DATE_ADD(build_date, INTERVAL 1095 DAY)
