@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $action = $_POST['action']; // Retrieve the button clicked
   $unique_number = $_POST['unique_number'];
   $coach_number = $_POST['coach_number'];
+  $train_number = $_POST['TrainNumber'];
   $build_date = $_POST['build_date'];
   $checking_date = $_POST['checking_date'];
   $refilling_date = $_POST['refilling_date'];
@@ -73,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
       // Update the existing record
       $update_sql = "UPDATE fire_extinguishers 
-                       SET coach_number='$coach_number', build_date='$build_date', checking_date='$checking_date',
+                       SET coach_number='$coach_number', Train_No='$train_number',build_date='$build_date', checking_date='$checking_date',
                            refilling_date='$refilling_date', hydraulic_test_date='$hydraulic_test_date', status='$status'
                        WHERE unique_number='$unique_number'";
 
@@ -84,8 +85,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
     } else {
       // Insert a new record
-      $insert_sql = "INSERT INTO fire_extinguishers (unique_number, coach_number, build_date, checking_date, refilling_date, hydraulic_test_date, status)
-                       VALUES ('$unique_number', '$coach_number', '$build_date', '$checking_date', '$refilling_date', '$hydraulic_test_date', '$status')";
+      $insert_sql = "INSERT INTO fire_extinguishers (unique_number, coach_number, Train_No, build_date, checking_date, refilling_date, hydraulic_test_date, status)
+                       VALUES ('$unique_number', '$coach_number', '$train_number','$build_date', '$checking_date', '$refilling_date', '$hydraulic_test_date', '$status')";
 
       if ($conn->query($insert_sql) === TRUE) {
         $successMessage  = "New Fire Extinguisher record with Unique Number <strong>$unique_number</strong> has been successfully <strong>added</strong>.";
@@ -181,6 +182,15 @@ $conn->close();
             Fetch Details
           </button>
         </div>
+      </div>
+      <div class="mb-3">
+        <label for="TrainNumber" class="form-label">Train Number</label>
+        <input
+          type="text"
+          class="form-control"
+          id="TrainNumber"
+          name="TrainNumber"
+          value="<?php echo isset($_POST['TrainNumber']) ? '' : ''; ?>" />
       </div>
       <div class="mb-3">
         <label for="coachNumber" class="form-label">Coach Number</label>

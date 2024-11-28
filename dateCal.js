@@ -86,6 +86,7 @@ document.getElementById("fetchData").addEventListener("click", function () {
           let next_checking_date_limit = 90;
           let next_refilling_date_limit = 365;
           let next_hydraulic_test_date_limit = 1095;
+          let Train_No = data.Train_No == null ? " " : data.Train_No;
 
           const next_checking_date =
             data.checking_date !== "0000-00-00"
@@ -113,15 +114,18 @@ document.getElementById("fetchData").addEventListener("click", function () {
                                         Fire Extinguisher Information
                                     </div>
                                     <div class="card-body">
-            
+
                                 <ul class="list-group">
-                                    <li class="list-group-item">Coach Number: ${
-                                      data.coach_number
-                                    }</li>
-                                    <li class="list-group-item">Build Date: ${
+                                   <li class="list-group-item">Train Number : <strong>
+                                     ${Train_No}
+                                   </strong></li>
+                                    <li class="list-group-item">Coach Number : <strong>
+                                      ${data.coach_number}
+                                    </strong></li>
+                                    <li class="list-group-item">Build Date : ${
                                       data.build_date
                                     }</li>
-                                    <li class="list-group-item">Checking Date: ${
+                                    <li class="list-group-item">Checking Date : ${
                                       data.checking_date
                                     }</li>
                                     <li class="list-group-item ${
@@ -130,7 +134,7 @@ document.getElementById("fetchData").addEventListener("click", function () {
               diffday(next_checking_date).message
             }</li>
             
-                                    <li class="list-group-item">Refilling Date: ${
+                                    <li class="list-group-item">Refilling Date : ${
                                       data.refilling_date
                                     }</li>
                                     <li class="list-group-item ${
@@ -138,7 +142,7 @@ document.getElementById("fetchData").addEventListener("click", function () {
                                     }">Next Refilling Date due on : ${next_refilling_date} ${
               diffday(next_refilling_date).message
             }</li>
-                                    <li class="list-group-item">Hydraulic Test Date: ${
+                                    <li class="list-group-item">Hydraulic Test Date : ${
                                       data.hydraulic_test_date
                                     }</li>
                                     <li class="list-group-item ${

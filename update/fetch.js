@@ -1,5 +1,6 @@
 document.getElementById("uniqueNumber").value = "";
 document.getElementById("coachNumber").value = "";
+document.getElementById("TrainNumber").value = "";
 document.getElementById("buildDate").value = "";
 document.getElementById("checkingDate").value = "";
 document.getElementById("refillingDate").value = "";
@@ -19,6 +20,7 @@ document.getElementById("fetchData").addEventListener("click", function () {
             '<div class="alert alert-danger">FE number is  not present</div>';
         } else {
           document.getElementById("coachNumber").value = data.coach_number;
+          document.getElementById("TrainNumber").value = data.Train_No;
           document.getElementById("buildDate").value = data.build_date;
           document.getElementById("buildDate").readOnly = true;
           document.getElementById("checkingDate").value = data.checking_date;
