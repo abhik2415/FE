@@ -53,10 +53,12 @@ function generateTable(data, datetype) {
     data.forEach((row) => {
       table += `<tr>
           <td>${row.unique_number}</td>
-          <td>${row.Train_No || " "}</td>
+          <td>${row.Train_No || ""}</td>
           <td>${row.coach_number}</td>
           <td>${row.build_date}</td>
-          <td>${row.checking_date || "N/A"}</td>
+          <td>${(row.checking_date = "0000 - 00 - 00"
+            ? ""
+            : row.checking_date)}</td>
           <td>${row.next_checking_date}</td>
           <td>${row.day_difference}</td>
       </tr>`;
@@ -70,10 +72,12 @@ function generateTable(data, datetype) {
     data.forEach((row) => {
       table += `<tr>
           <td>${row.unique_number}</td>
-          <td>${row.Train_No || " "}</td>
+          <td>${row.Train_No || ""}</td>
           <td>${row.coach_number}</td>
           <td>${row.build_date}</td>
-          <td>${row.refilling_date || "N/A"}</td>
+          <td>${(row.refilling_date = "0000 - 00 - 00"
+            ? ""
+            : row.refilling_date)}</td>
           <td>${row.next_refilling_date}</td>
           <td>${row.day_difference}</td>
       </tr>`;
@@ -87,10 +91,12 @@ function generateTable(data, datetype) {
     data.forEach((row) => {
       table += `<tr>
           <td>${row.unique_number}</td>
-          <td>${row.Train_No || " "}</td>
+          <td>${row.Train_No || ""}</td>
           <td>${row.coach_number}</td>
           <td>${row.build_date}</td>
-          <td>${row.hydraulic_test_date || "N/A"}</td>
+          <td>${(row.hydraulic_test_date = "0000 - 00 - 00"
+            ? ""
+            : row.hydraulic_test_date)}</td>
           <td>${row.next_hydraulic_test_date}</td>
           <td>${row.day_difference}</td>
       </tr>`;
